@@ -103,10 +103,11 @@ app.get("/messages", function (req, res) {
 });
 
 app.post("/messages", async (req, res) => {
-  const { content } = req.body;
+  const { content, UserId } = req.body;
   try {
     const message = await Message.create({
       content,
+      UserId
     });
     res.status(201).json(message);
   } catch (err) {

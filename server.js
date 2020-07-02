@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users", function (req, res) {
-  User.findAll({ include: [{ model: Message, as: "message" }] }).then(function (
+  User.findAll({ include: [{ model: Message, as: "messages" }] }).then(function (
     results
   ) {
     res.json(results);

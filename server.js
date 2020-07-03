@@ -43,9 +43,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users", function (req, res) {
-  User.findAll({ include: [{ model: Message, as: "messages" }] }).then(function (
-    results
-  ) {
+  User.findAll({ include: [{ model: Message, as: "messages" }] }).then(
+    function (results) {
+      res.json(results);
+    }
+  );
+});
+
+app.get("/messages", function (req, res) {
+  Message.findAll({
+    include: [{ model: User }],
+  }).then(function (results) {
     res.json(results);
   });
 });
@@ -96,18 +104,12 @@ app.put("/users/:uuid", async (req, res) => {
   }
 });
 
-app.get("/messages", function (req, res) {
-  Message.findAll().then(function (results) {
-    res.json(results);
-  });
-});
-
 app.post("/messages", async (req, res) => {
   const { content, userUuid } = req.body;
   try {
     const message = await Message.create({
       content,
-      userUuid
+      userUuid,
     });
     res.status(201).json(message);
   } catch (err) {

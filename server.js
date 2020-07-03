@@ -27,7 +27,7 @@ const Message = sequelize.define("message", {
 });
 
 User.hasMany(Message, { foreignKey: { allowNull: true }, as: "messages" });
-Message.belongsTo(User);
+Message.belongsTo(User, { as: "users" });
 
 const app = express();
 

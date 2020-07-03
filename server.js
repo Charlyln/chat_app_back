@@ -132,11 +132,12 @@ app.get("/messages/:uuid", async (req, res) => {
 
 app.put("/messages/:uuid", async (req, res) => {
   const uuid = req.params.uuid;
-  const { content } = req.body;
+  const { content, userUuid } = req.body;
   try {
     await Message.update(
       {
         content,
+        userUuid,
       },
       { where: { uuid } }
     );

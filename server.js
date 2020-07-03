@@ -52,7 +52,7 @@ app.get("/users", function (req, res) {
 
 app.get("/messages", function (req, res) {
   Message.findAll({
-    include: [{ model: User }],
+    include: [{ model: User, as: "users" }],
   }).then(function (results) {
     res.json(results);
   });

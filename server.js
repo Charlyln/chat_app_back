@@ -27,7 +27,7 @@ const Message = sequelize.define("message", {
 });
 
 User.hasMany(Message, { foreignKey: { allowNull: true }, as: "messages" });
-Message.belongsTo(User, { as: "users" });
+Message.belongsTo(User);
 
 const app = express();
 
@@ -52,7 +52,7 @@ app.get("/users", function (req, res) {
 
 app.get("/messages", function (req, res) {
   Message.findAll({
-    include: [{ model: User, as: "users" }],
+    include: [{ model: User }],
   }).then(function (results) {
     res.json(results);
   });

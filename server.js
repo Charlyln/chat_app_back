@@ -104,6 +104,16 @@ app.put("/users/:uuid", async (req, res) => {
   }
 });
 
+app.delete("/users/:uuid", async (req, res) => {
+  const uuid = req.params.uuid;
+  try {
+    await User.destroy({ where: { uuid } });
+    res.status(204).send("Votre compte a bien été supprimé")
+  } catch (err) {
+    res.status(422).json(err);
+  }
+});
+
 app.post("/messages", async (req, res) => {
   const { content, userUuid } = req.body;
   try {

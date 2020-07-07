@@ -22,4 +22,4 @@ Content-Type: application/json
 }
 
 ###
-GET https://mychatappmessenger.herokuapp.com/users/fdc9bc48-9f82-4dcc-b2e8-19b355847a18 HTTP/1.1
+DELETE https://mychatappmessenger.herokuapp.com/users/7c5a812e-d265-409c-b922-4bf9b50fd9cc HTTP/1.1

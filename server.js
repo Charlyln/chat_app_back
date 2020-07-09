@@ -143,11 +143,12 @@ app.get("/messages/:uuid", async (req, res) => {
 
 app.put("/messages/:uuid", async (req, res) => {
   const uuid = req.params.uuid;
-  const { content, userUuid } = req.body;
+  const { content, likes, userUuid } = req.body;
   try {
     await Message.update(
       {
         content,
+        likes,
         userUuid,
       },
       { where: { uuid } }

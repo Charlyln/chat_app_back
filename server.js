@@ -24,7 +24,10 @@ const Message = sequelize.define("message", {
     defaultValue: Sequelize.UUIDV4,
   },
   content: Sequelize.STRING,
-  likes: Sequelize.INTEGER,
+  likes: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
+  },
 });
 
 User.hasMany(Message, { foreignKey: { allowNull: true }, as: "messages" });

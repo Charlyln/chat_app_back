@@ -162,6 +162,21 @@ app.put("/messages/:uuid", async (req, res) => {
   }
 });
 
+app.put("/messages/:uuid/click", async (req, res) => {
+  const uuid = req.params.uuid;
+  try {
+    await Message.update(
+      {
+        likes: sequelize.literal("likes+1"),
+      },
+      { where: { uuid } }
+    );
+    res.status(201).end();
+  } catch (err) {
+    res.status(422).json(err);
+  }
+});
+
 async function main() {
   try {
     await sequelize.sync();

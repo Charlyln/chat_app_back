@@ -26,7 +26,7 @@ const Message = sequelize.define("message", {
   content: Sequelize.STRING,
   likes: Sequelize.INTEGER,
 });
-s;
+
 User.hasMany(Message, { foreignKey: { allowNull: true }, as: "messages" });
 Message.belongsTo(User);
 

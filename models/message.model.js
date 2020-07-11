@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 const sequelizeInstance = require("../sequelize");
 
-const Message = sequelizeInstance.define("message", {
+const Message = sequelizeInstance.define("Message", {
   uuid: {
     type: Sequelize.UUID,
     allowNull: false,

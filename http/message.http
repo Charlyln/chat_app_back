@@ -1,11 +1,13 @@
 ### GET ALL
-GET https://mychatappmessenger.herokuapp.com/messages
+GET http://localhost:8081/messages
 
 ### POST ONE
-PUT https://mychatappmessenger.herokuapp.com/messages/216c9ae9-db65-42bc-9c4c-40138e2e9eed HTTP/1.1
+POST http://localhost:8081/messages HTTP/1.1
 Content-Type: application/json
 
 {
-    "likes" : 1
+    "content" : "cczzczc",
+    "UserUuid" : "bcb1a04b-295a-4533-b9c9-f404c66b955e"
 }
+
 

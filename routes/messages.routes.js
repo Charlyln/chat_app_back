@@ -1,6 +1,7 @@
 const express = require("express");
 const messages = express.Router();
 const Message = require("../models/message.model");
+const User = require("../models/user.model")
 
 messages.get("/", async (req, res) => {
   try {
@@ -14,11 +15,11 @@ messages.get("/", async (req, res) => {
 });
 
 messages.post("/", async (req, res) => {
-  const { content, UserId } = req.body;
+  const { content, UserUuid } = req.body;
   try {
     const message = await Message.create({
       content,
-      UserId,
+      UserUuid,
     });
     res.status(201).json(message);
   } catch (err) {

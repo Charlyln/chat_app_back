@@ -9,7 +9,7 @@ if (process.env.DATABASE_URL) {
     host: "localhost",
     username: "root",
     password: "Csvecora1",
-    database: "model",
+    database: "model2",
     dialect: "mysql",
   });
 }

@@ -1,11 +1,12 @@
-GET https://mychatappmessenger.herokuapp.com/users
+GET http://localhost:8081/users
 
 ###
-POST https://mychatappmessenger.herokuapp.com/users HTTP/1.1
+POST http://localhost:8081/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "pseudo" : "charly"
+    "pseudo" : "charly",
+    "avatar" : "charly"
 }
 
 ###

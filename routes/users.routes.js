@@ -11,12 +11,12 @@ users.get("/", async (req, res) => {
   }
 });
 
-users.get("/:id", async (req, res) => {
-  const id = req.params.id;
+users.get("/:uuid", async (req, res) => {
+  const uuid = req.params.uuid;
   try {
     const user = await User.findAll({
       where: {
-        id,
+        uuid,
       },
     });
     res.status(200).json(user);

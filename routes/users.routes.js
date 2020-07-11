@@ -14,7 +14,7 @@ users.get("/", async (req, res) => {
 users.get("/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const user = await User.findOne({
+    const user = await User.findAll({
       where: {
         id,
       },

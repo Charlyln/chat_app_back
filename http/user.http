@@ -1,4 +1,4 @@
-GET http://localhost:8081/users
+GET https://mychatappmessenger.herokuapp.com/users/bf085414-10ed-4a09-8e79-7d84c5da6fbd
 
 ###
 POST http://localhost:8081/users HTTP/1.1

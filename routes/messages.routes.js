@@ -4,7 +4,9 @@ const Message = require("../models/message.model");
 
 messages.get("/", async (req, res) => {
   try {
-    const messages = await Message.findAll();
+    const messages = await Message.findAll({
+      include: [{ model: User }],
+    });
     res.status(200).json(messages);
   } catch (err) {
     res.status(400).json(err);

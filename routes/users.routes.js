@@ -2,6 +2,7 @@ const express = require("express");
 const users = express.Router();
 const User = require("../models/user.model");
 const Message = require("../models/message.model");
+const Likes = require("../models/likes.model");
 
 users.get("/", async (req, res) => {
   try {
@@ -16,6 +17,7 @@ users.get("/:uuid", async (req, res) => {
   const uuid = req.params.uuid;
   try {
     const user = await User.findOne({
+      include: [{ model: Likes }],
       where: {
         uuid,
       },

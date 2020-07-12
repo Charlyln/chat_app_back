@@ -1,13 +1,12 @@
-GET http://localhost:8080/likes
+GET https://mychatappmessenger.herokuapp.com/likes
 
 ###
-POST http://localhost:8080/likes HTTP/1.1
+POST https://mychatappmessenger.herokuapp.com/likes HTTP/1.1
 Content-Type: application/json
 
 {
-    "number" : 1,
-    "UserUuid" : "d7087e53-28ce-4ee0-9d09-94f913dd3f2f",
-    "MessageUuid": "67d14bc9-2bc2-415b-ac8b-5a78280570e1"
+    "UserUuid" : "3250e6c6-5535-4543-b84c-542789c5e69c",
+    "MessageUuid": "7c93ef27-1a7d-41b8-a2ee-bc39f0c7c94f"
 }
 
 ###

@@ -27,4 +27,14 @@ likes.post("/", async (req, res) => {
   }
 });
 
+likes.delete("/:uuid", async (req, res) => {
+  const uuid = req.params.uuid;
+  try {
+    await Like.destroy({ where: { uuid } });
+    res.status(204).send("Votre like a été supprimé");
+  } catch (err) {
+    res.status(422).json(err);
+  }
+});
+
 module.exports = likes;

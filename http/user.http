@@ -1,7 +1,7 @@
-GET https://mychatappmessenger.herokuapp.com/users/bf085414-10ed-4a09-8e79-7d84c5da6fbd
+GET http://localhost:8080/users/d7087e53-28ce-4ee0-9d09-94f913dd3f2f
 
 ###
-POST http://localhost:8081/users HTTP/1.1
+POST http://localhost:8080/users HTTP/1.1
 Content-Type: application/json
 
 {

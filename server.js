@@ -2,11 +2,12 @@ const express = require("express");
 const sequelize = require("./sequelize");
 const users = require("./routes/users.routes");
 const messages = require("./routes/messages.routes");
+const likes = require("./routes/likes.routes");
 var cors = require("cors");
 
 const app = express();
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(express.static("public"));
 
 app.use("/users", users);
 app.use("/messages", messages);
+app.use("/likes", likes);
 
 require("./models/association");
 

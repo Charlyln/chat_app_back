@@ -1,6 +1,7 @@
 const express = require("express");
 const users = express.Router();
 const User = require("../models/user.model");
+const Message = require("../models/message.model");
 
 users.get("/", async (req, res) => {
   try {
@@ -14,7 +15,7 @@ users.get("/", async (req, res) => {
 users.get("/:uuid", async (req, res) => {
   const uuid = req.params.uuid;
   try {
-    const user = await User.findAll({
+    const user = await User.findOne({
       where: {
         uuid,
       },

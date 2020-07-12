@@ -1,0 +1,27 @@
+GET http://localhost:8080/likes
+
+###
+POST http://localhost:8080/likes HTTP/1.1
+Content-Type: application/json
+
+{
+    "number" : 1,
+    "UserUuid" : "d7087e53-28ce-4ee0-9d09-94f913dd3f2f",
+    "MessageUuid": "67d14bc9-2bc2-415b-ac8b-5a78280570e1"
+}
+
+###
+POST https://squicker.herokuapp.com/datas HTTP/1.1
+Content-Type: application/json
+
+{
+    "bloodSugar" : "ok",
+    "weight" : "ok",
+    "mood" : "ok",
+    "appetite" : "ok",
+    "patientUuid": "3421d7cf-c8cd-4cde-9a33-92a0e605fc88"
+
+}
+
+###
+GET http://localhost:8080/likes/fdc9bc48-9f82-4dcc-b2e8-19b355847a18 HTTP/1.1

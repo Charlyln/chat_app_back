@@ -1,12 +1,13 @@
 const express = require("express");
 const messages = express.Router();
 const Message = require("../models/message.model");
-const User = require("../models/user.model")
+const User = require("../models/user.model");
+const Likes = require("../models/likes.model");
 
 messages.get("/", async (req, res) => {
   try {
     const messages = await Message.findAll({
-      include: [{ model: User }],
+      include: [{ model: Likes }, { model: User }],
     });
     res.status(200).json(messages);
   } catch (err) {

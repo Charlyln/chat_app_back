@@ -3,11 +3,22 @@ const messages = express.Router();
 const Message = require("../models/message.model");
 const User = require("../models/user.model");
 const Likes = require("../models/likes.model");
+const Followers = require("../models/followers.model");
 
 messages.get("/", async (req, res) => {
   try {
     const messages = await Message.findAll({
-      include: [{ model: Likes }, { model: User }],
+      include: [
+        { model: Likes },
+        {
+          model: User,
+          include: [
+            {
+              model: Followers,
+            },
+          ],
+        },
+      ],
     });
     res.status(200).json(messages);
   } catch (err) {

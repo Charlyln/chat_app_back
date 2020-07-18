@@ -3,10 +3,23 @@ const users = express.Router();
 const User = require("../models/user.model");
 const Message = require("../models/message.model");
 const Likes = require("../models/likes.model");
+const Followers = require("../models/followers.model");
 
 users.get("/", async (req, res) => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      include: [
+        {
+          model: Message,
+          include: [
+            {
+              model: Likes,
+            },
+          ],
+        },
+        { model: Followers },
+      ],
+    });
     res.status(200).json(users);
   } catch (err) {
     res.status(400).json(err);
@@ -17,7 +30,7 @@ users.get("/:uuid", async (req, res) => {
   const uuid = req.params.uuid;
   try {
     const user = await User.findOne({
-      include: [{ model: Likes }],
+      include: [{ model: Likes }, { model: Followers }],
       where: {
         uuid,
       },

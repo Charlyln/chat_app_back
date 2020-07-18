@@ -1,7 +1,6 @@
 const express = require("express");
 const likes = express.Router();
 const Like = require("../models/likes.model");
-const Message = require("../models/message.model");
 const User = require("../models/user.model");
 
 likes.get("/", async (req, res) => {

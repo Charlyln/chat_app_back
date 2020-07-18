@@ -1,12 +1,12 @@
-GET http://localhost:8080/likes
+GET http://localhost:8080/followers
 
 ###
-POST http://localhost:8080/likes HTTP/1.1
+POST http://localhost:8080/followers HTTP/1.1
 Content-Type: application/json
 
 {
-    "UserUuid" : "abb10681-6362-4944-99d5-b48c9dd8ae26",
-    "MessageUuid": "f4bc92cc-9499-4fc8-8f2d-c0b893035343"
+    "UserUuid" : "3dd1e6eb-bab7-4a2b-9561-760d8aa54ccb",
+    "followerId" : "92b03709-919a-4024-8727-7a3414a24f94"
 }
 
 ###

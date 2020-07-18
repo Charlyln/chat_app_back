@@ -1,14 +1,13 @@
-GET http://localhost:8080/users/d7087e53-28ce-4ee0-9d09-94f913dd3f2f
-
+GET http://localhost:8080/users/92b03709-919a-4024-8727-7a3414a24f94
 ###
-POST http://localhost:8080/users HTTP/1.1
+POST http://localhost:8080/users/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "pseudo" : "charly",
-    "avatar" : "charly"
-}
+    "pseudo" : "lisa",
+    "avatar" : "lisa"
 
+}
 ###
 POST https://mychatappmessenger.herokuapp.com/users HTTP/1.1
 Content-Type: application/json

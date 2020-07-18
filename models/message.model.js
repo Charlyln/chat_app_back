@@ -10,10 +10,7 @@ const Message = sequelizeInstance.define("Message", {
     defaultValue: Sequelize.UUIDV4,
   },
   content: Sequelize.STRING,
-  likes: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0,
-  },
+  imageUrl: Sequelize.STRING,
 });
 
 module.exports = Message;

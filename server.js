@@ -3,6 +3,7 @@ const sequelize = require("./sequelize");
 const users = require("./routes/users.routes");
 const messages = require("./routes/messages.routes");
 const likes = require("./routes/likes.routes");
+const followers = require("./routes/followers.route");
 var cors = require("cors");
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.static("public"));
 app.use("/users", users);
 app.use("/messages", messages);
 app.use("/likes", likes);
+app.use("/followers", followers);
 
 require("./models/association");
 

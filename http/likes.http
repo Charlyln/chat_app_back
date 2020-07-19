@@ -5,8 +5,8 @@ POST http://localhost:8080/likes HTTP/1.1
 Content-Type: application/json
 
 {
-    "UserUuid" : "abb10681-6362-4944-99d5-b48c9dd8ae26",
-    "MessageUuid": "f4bc92cc-9499-4fc8-8f2d-c0b893035343"
+    "UserUuid" : "c54198b4-a236-4557-9037-c3c61e627702",
+    "PostUuid": "6c7d8c40-b21c-40de-913c-873e622e7434"
 }
 
 ###

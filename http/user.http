@@ -1,11 +1,11 @@
-GET http://localhost:8080/users/92b03709-919a-4024-8727-7a3414a24f94
+GET http://localhost:8080/users
 ###
 POST http://localhost:8080/users/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "pseudo" : "lisa",
-    "avatar" : "lisa"
+    "pseudo" : "Homer Simpson",
+    "avatar" : "https://pepsnews.com/wp-content/uploads/2016/11/what-homer-simpson-taught-us-about-doughnuts.jpg"
 
 }
 ###

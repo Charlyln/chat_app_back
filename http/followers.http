@@ -5,8 +5,8 @@ POST http://localhost:8080/followers HTTP/1.1
 Content-Type: application/json
 
 {
-    "UserUuid" : "3dd1e6eb-bab7-4a2b-9561-760d8aa54ccb",
-    "followerId" : "92b03709-919a-4024-8727-7a3414a24f94"
+    "UserUuid" : "583e9b46-e640-4db9-9b7d-26dec96b6b25",
+    "followerId" : "583e9b46-e640-4db9-9b7d-26dec96b6b25"
 }
 
 ###

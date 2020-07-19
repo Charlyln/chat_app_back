@@ -27,12 +27,11 @@ messages.get("/", async (req, res) => {
 });
 
 messages.post("/", async (req, res) => {
-  const { content, UserUuid, imageUrl } = req.body;
+  const { content, UserUuid } = req.body;
   try {
     const message = await Message.create({
       content,
       UserUuid,
-      imageUrl,
     });
     res.status(201).json(message);
   } catch (err) {

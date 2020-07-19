@@ -13,10 +13,11 @@ likes.get("/", async (req, res) => {
 });
 
 likes.post("/", async (req, res) => {
-  const { MessageUuid, UserUuid, number } = req.body;
+  const { MessageUuid, UserUuid, number, PostUuid } = req.body;
   try {
     const likes = await Like.create({
       MessageUuid,
+      PostUuid,
       UserUuid,
       number,
     });

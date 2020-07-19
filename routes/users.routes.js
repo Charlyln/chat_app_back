@@ -111,7 +111,7 @@ users.post("/", async (req, res) => {
 //   }
 // });
 
-users.delete("/users/:uuid", async (req, res) => {
+users.delete("/:uuid", async (req, res) => {
   const uuid = req.params.uuid;
   try {
     await User.destroy({ where: { uuid } });

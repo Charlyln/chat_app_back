@@ -49,4 +49,14 @@ posts.post("/", async (req, res) => {
   }
 });
 
+posts.delete("/:uuid", async (req, res) => {
+  const uuid = req.params.uuid;
+  try {
+    await Post.destroy({ where: { uuid } });
+    res.status(204).send("Votre post a été supprimé");
+  } catch (err) {
+    res.status(422).json(err);
+  }
+});
+
 module.exports = posts;

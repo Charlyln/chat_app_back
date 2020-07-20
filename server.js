@@ -5,6 +5,7 @@ const messages = require("./routes/messages.routes");
 const likes = require("./routes/likes.routes");
 const followers = require("./routes/followers.route");
 const posts = require("./routes/posts.route");
+const comments = require("./routes/comments.routes")
 var cors = require("cors");
 
 const app = express();
@@ -21,6 +22,7 @@ app.use("/messages", messages);
 app.use("/likes", likes);
 app.use("/followers", followers);
 app.use("/posts", posts);
+app.use("/comments", comments);
 
 require("./models/association");
 

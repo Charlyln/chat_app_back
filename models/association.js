@@ -3,6 +3,7 @@ const Message = require("./message.model");
 const Likes = require("./likes.model");
 const Followers = require("./followers.model");
 const Post = require("./post.model");
+const Comments = require("./comments.model");
 
 User.hasMany(Message, { foreignKey: { allowNull: false } });
 Message.belongsTo(User);
@@ -21,3 +22,9 @@ Post.belongsTo(User);
 
 Post.hasMany(Likes, { foreignKey: { allowNull: true } });
 Likes.belongsTo(Post);
+
+Post.hasMany(Comments, { foreignKey: { allowNull: false } });
+Comments.belongsTo(Post);
+
+User.hasMany(Comments, { foreignKey: { allowNull: false } });
+Comments.belongsTo(User);

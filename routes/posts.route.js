@@ -4,22 +4,31 @@ const Post = require("../models/post.model");
 const User = require("../models/user.model");
 const Likes = require("../models/likes.model");
 const Followers = require("../models/followers.model");
+const Comments = require("../models/comments.model");
 
 posts.get("/", async (req, res) => {
   try {
     const posts = await Post.findAll({
-        include: [
-          { model: Likes },
-          {
-            model: User,
-            include: [
-              {
-                model: Followers,
-              },
-            ],
-          },
-        ],
-      });
+      include: [
+        { model: Likes },
+        {
+          model: User,
+          include: [
+            {
+              model: Followers,
+            },
+          ],
+        },
+        {
+          model: Comments,
+          include: [
+            {
+              model: User,
+            },
+          ],
+        },
+      ],
+    });
     res.status(200).json(posts);
   } catch (err) {
     res.status(400).json(err);

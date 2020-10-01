@@ -1,11 +1,11 @@
-const express = require("express");
-const messages = express.Router();
-const Message = require("../models/message.model");
-const User = require("../models/user.model");
-const Likes = require("../models/likes.model");
-const Followers = require("../models/followers.model");
+const express = require('express')
+const messages = express.Router()
+const Message = require('../models/message.model')
+const User = require('../models/user.model')
+const Likes = require('../models/likes.model')
+const Followers = require('../models/followers.model')
 
-messages.get("/", async (req, res) => {
+messages.get('/', async (req, res) => {
   try {
     const messages = await Message.findAll({
       include: [
@@ -14,30 +14,40 @@ messages.get("/", async (req, res) => {
           model: User,
           include: [
             {
-              model: Followers,
-            },
-          ],
-        },
-      ],
-    });
-    res.status(200).json(messages);
+              model: Followers
+            }
+          ]
+        }
+      ]
+    })
+    res.status(200).json(messages)
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json(err)
   }
-});
+})
 
-messages.post("/", async (req, res) => {
-  const { content, UserUuid } = req.body;
+messages.post('/', async (req, res) => {
+  const { content, UserUuid } = req.body
   try {
     const message = await Message.create({
       content,
-      UserUuid,
-    });
-    res.status(201).json(message);
+      UserUuid
+    })
+    res.status(201).json(message)
   } catch (err) {
-    res.status(422).json(err);
+    res.status(422).json(err)
   }
-});
+})
+
+messages.delete('/:uuid', async (req, res) => {
+  const uuid = req.params.uuid
+  try {
+    await Message.destroy({ where: { uuid } })
+    res.status(204).send('Votre message a été supprimé')
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
 
 // app.get("/messages", function (req, res) {
 //   Message.findAll({
@@ -109,4 +119,4 @@ messages.post("/", async (req, res) => {
 //   }
 // });
 
-module.exports = messages;
+module.exports = messages

@@ -11,6 +11,16 @@ followers.get("/", async (req, res) => {
   }
 });
 
+followers.get("/:followerId", async (req, res) => {
+  const followerId = req.params.followerId;
+  try {
+    const followers = await Follower.findAll({ where: { followerId } });
+    res.status(200).json(followers);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 followers.post("/", async (req, res) => {
   const { UserUuid, followerId } = req.body;
   try {
